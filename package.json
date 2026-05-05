@@ -1,0 +1,18 @@
+{
+  "name": "hnaicc-submit",
+  "description": "HNAICC cluster job submission skills -- SSH, csub/AIP scheduling, batch submission, and troubleshooting",
+  "version": "2.0.0",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<your-username>/HNAICC-skill"
+  },
+  "skills": [
+    {
+      "name": "HNAICC_submit",
+      "description": "Use when submitting, managing, or troubleshooting jobs on the HNAICC cluster via SSH + csub/AIP scheduler",
+      "path": "skills/HNAICC_submit/SKILL.md"
+    }
+  ]
+}

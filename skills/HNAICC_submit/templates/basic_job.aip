@@ -1,0 +1,39 @@
+#!/bin/bash
+# ============================================================
+# HNAICC AIP Job Script Template
+# Usage: Modify parameters below, then submit with: csub < this.aip
+# ============================================================
+
+# ---------- Resource Parameters ----------
+#CSUB -J my_job                          # Job name
+#CSUB -q c01                             # Queue: cpu, fat4, fat8, gpu_100, c01, test
+#CSUB -n 16                              # CPU cores (c01: 1/2/4/8/16/32/44/64/88)
+#CSUB -R rusage[mem=176G]                # Memory (c01: 11GB per core)
+#CSUB -R span[hosts=1]                   # Single node
+#CSUB -o %J.out                          # Stdout (%J = job ID)
+#CSUB -e %J.err                          # Stderr
+#CSUB -cwd /share/org/BGI/<user>/work   # Working directory
+#CSUB -A <account>                       # Billing account
+
+# ---------- Environment ----------
+source /opt/skyformai/etc/aip.sh        # AIP environment (CRITICAL)
+
+# For CPU jobs: use module
+# module load openmpi/4.1.3
+
+# For GPU/AI jobs: use conda (not module)
+# source /share/apps/anaconda3/bin/activate
+# conda activate <env_name>
+
+export PATH=/opt/skyformai/bin:$PATH
+
+# ---------- Execute ----------
+echo "Job started: $(date)"
+echo "Hostname: $(hostname)"
+echo "Working dir: $(pwd)"
+
+# Replace with your actual command
+# python3 my_script.py
+# ./my_analysis.sh
+
+echo "Job finished: $(date)"
