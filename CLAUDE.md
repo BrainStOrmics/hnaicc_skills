@@ -1,6 +1,6 @@
 # HNAICC Submit — Agent Instructions
 
-You are working with the HNAICC (华大国家基因库) HPC cluster. This repo contains the complete skill for connecting to and submitting jobs on the cluster.
+You are working with the HNAICC HPC cluster. This repo contains the complete skill for connecting to and submitting jobs on the cluster.
 
 ## When This Applies
 

@@ -18,7 +18,7 @@ Add to your `.opencode.json` or `.opencode/config.json`:
 Or clone this repo and point OpenCode to the SKILL.md:
 
 ```bash
-git clone https://github.com/<your-username>/HNAICC-skill.git
+git clone https://github.com/xinqi-sleep/HNAICC-skill.git
 ```
 
 Then tell OpenCode: "Load the skill from HNAICC-skill/skills/HNAICC_submit/SKILL.md"

@@ -4,7 +4,7 @@ HNAICC cluster job submission skills for coding agents -- SSH connection, AIP/cs
 
 ## Quickstart
 
-Install for your agent: [Claude Code](#claude-code), [Codex](#codex), [Hermes Agent](#hermes-agent).
+Install for your agent: [Claude Code](#claude-code), [Codex](#codex), [OpenCode](#opencode), [Hermes Agent](#hermes-agent).
 
 ## How It Works
 
@@ -29,7 +29,7 @@ Installation differs by agent harness. Install separately for each one you use.
 
 ```bash
 # Clone this repo
-git clone https://github.com/<your-username>/HNAICC-skill.git
+git clone https://github.com/BrainStOrmics/hnaicc_skills.git
 
 # Symlink the skill into Claude's skills directory
 ln -s $(pwd)/HNAICC-skill/skills/HNAICC_submit ~/.claude/skills/HNAICC_submit
@@ -50,6 +50,8 @@ Claude Code auto-loads skills from `~/.claude/skills/` (global) and `.claude/ski
 
 ### Codex
 
+Codex does not have a standardized skills directory convention. Instead, reference the skill documentation directly in your project instructions.
+
 **Option A: Project-level AGENTS.md reference**
 
 Add to your project's `AGENTS.md` or `CLAUDE.md`:
@@ -64,10 +66,35 @@ For HNAICC cluster job submission, follow the skill at:
 **Option B: Clone and reference**
 
 ```bash
-git clone https://github.com/<your-username>/HNAICC-skill.git
+git clone https://github.com/BrainStOrmics/hnaicc_skills.git
 ```
 
 Then tell Codex: "The HNAICC cluster job submission skill is at HNAICC-skill/skills/HNAICC_submit/SKILL.md"
+
+### OpenCode
+
+**Option A: Config reference**
+
+Add to your `.opencode.json` or `.opencode/config.json`:
+
+```json
+{
+  "skills": [
+    {
+      "name": "HNAICC_submit",
+      "path": "skills/HNAICC_submit/SKILL.md"
+    }
+  ]
+}
+```
+
+**Option B: Clone and reference**
+
+```bash
+git clone https://github.com/BrainStOrmics/hnaicc_skills.git
+```
+
+Then tell OpenCode: "Load the skill from HNAICC-skill/skills/HNAICC_submit/SKILL.md"
 
 ### Hermes Agent
 
@@ -76,10 +103,10 @@ Then tell Codex: "The HNAICC cluster job submission skill is at HNAICC-skill/ski
 hermes skills install /path/to/HNAICC-skill/skills/HNAICC_submit/SKILL.md
 
 # Or install from URL (after pushing to GitHub)
-hermes skills install https://raw.githubusercontent.com/<your-username>/HNAICC-skill/main/skills/HNAICC_submit/SKILL.md
+hermes skills install https://raw.githubusercontent.com/BrainStOrmics/hnaicc_skills.git
 
 # Or tap the repo for auto-updates
-hermes skills tap add https://github.com/<your-username>/HNAICC-skill
+hermes skills tap add https://github.com/BrainStOrmics/hnaicc_skills.git
 hermes skills install HNAICC_submit
 ```
 
@@ -163,7 +190,7 @@ Use the templates in `skills/HNAICC_submit/templates/`:
 
 ## Syncing After Updates
 
-When you update the skill locally and want to push changes to GitHub and sync all agents:
+After making changes, push to GitHub and sync to local agents:
 
 ```bash
 # 1. Push to GitHub
@@ -172,7 +199,7 @@ git add .
 git commit -m "update: HNAICC_submit skill"
 git push
 
-# 2. Sync to local agents (Hermes + Claude Code)
+# 2. Sync to local agents (Claude Code + Hermes)
 bash sync-hnaicc-skill.sh
 
 # 3. For Hermes remote update (if tapped the repo)

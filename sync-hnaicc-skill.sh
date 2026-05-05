@@ -1,13 +1,12 @@
 #!/bin/bash
 # sync-hnaicc-skill.sh
-# Sync HNAICC_submit skill to both Hermes and Claude Code from this repo
+# Sync HNAICC_submit skill to Claude Code and Hermes from this repo
 #
 # Usage: bash sync-hnaicc-skill.sh
 #
 # This script:
-# 1. Pulls latest changes from GitHub
+# 1. Updates Claude Code skill (from SKILL.md, strips frontmatter)
 # 2. Updates Hermes skill (from SKILL.md)
-# 3. Updates Claude Code skill (from SKILL.md, strips frontmatter)
 
 set -e
 
