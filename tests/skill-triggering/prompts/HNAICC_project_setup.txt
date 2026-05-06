@@ -1,0 +1,1 @@
+I want to set up a new project directory on the HNAICC cluster for my RNA-seq analysis.
